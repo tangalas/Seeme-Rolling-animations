@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Animation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 200vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            background-image: url('https://your-image-url.com'); /* Βάλε εδώ το εξώφυλλό σου */
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease-out, filter 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header" id="header"></div>
+
+    <script>
+        window.addEventListener("scroll", function() {
+            let scrollPosition = window.scrollY;
+            let header = document.getElementById("header");
+
+            header.style.transform = `scale(${1 + scrollPosition * 0.0005})`; // Zoom in
+            header.style.filter = `blur(${scrollPosition * 0.01}px)`; // Blur effect
+        });
+    </script>
+
+</body>
+</html>
